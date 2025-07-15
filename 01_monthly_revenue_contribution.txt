@@ -1,0 +1,7 @@
+select extract(year from book_date) as year,
+extract(month from book_date) as month,
+round(sum(total_amount)/sum(sum(total_amount)) over (partition by extract(year from book_date)),2)
+as revenue_contribution
+from bookings
+group by 1,2
+order by 1,2

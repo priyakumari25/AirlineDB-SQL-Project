@@ -1,0 +1,12 @@
+select departure_airport,
+count(case
+when extract(hour from scheduled_departure) < 12 then 1 end) as morning,
+count(case
+when extract(hour from scheduled_departure) between 12 then 15 then 1 end) as afternoon,
+count(case
+when extract(hour from scheduled_departure) between 16 and 19 then 1 end) as evening,
+count(case
+when extract(hour from scheduled_departure) >= 20 then 1 end) as night
+from flights
+grouped by departure_airport
+order by departure_airport

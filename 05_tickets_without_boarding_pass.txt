@@ -1,0 +1,3 @@
+select count(*) from tickets t left join boarding_passes bp
+on t.ticket_no = bp.ticket_no
+where bp.ticket_no is null

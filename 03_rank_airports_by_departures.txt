@@ -1,0 +1,3 @@
+select departure_airport, count(*) as total_flights,
+rank() over(order by count(*) desc) as airport_rank
+from flights group by departure_airport

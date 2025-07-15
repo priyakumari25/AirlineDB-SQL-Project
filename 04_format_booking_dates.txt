@@ -1,0 +1,1 @@
+select book_ref , cast(book_date as date), total_amount from bookings
